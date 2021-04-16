@@ -27,6 +27,7 @@ function onSearch(e) {
     fetchApi.resetPage()
     resetGallery()
     fetchItems()
+    
 }
 
 function fetchItems() {
@@ -36,9 +37,17 @@ function fetchItems() {
             if (hits.length < 12) {
                 loadMore.hide()
                 createMarkup(hits)
+                 window.scrollTo({
+      top: document.documentElement.offsetHeight,
+      behavior: 'smooth',
+    });
             } else {
                 createMarkup(hits)
                 loadMore.enable()
+                 window.scrollTo({
+      top: document.documentElement.offsetHeight,
+      behavior: 'smooth',
+    });
             }
         })
     }
